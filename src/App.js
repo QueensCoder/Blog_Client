@@ -23,6 +23,7 @@ const App = () => {
   };
 
   const login = async () => {
+    console.log('did we login?');
     // private info gotten from secrets
     const { username, email, password } = secrets;
 
