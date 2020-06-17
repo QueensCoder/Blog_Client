@@ -3,8 +3,6 @@ import axios from 'axios';
 import './App.css';
 import secrets from './secrets';
 
-const { username, email, password } = secrets();
-
 const App = () => {
   const [blogs, setBlogs] = useState([]);
   const [isAuth, setAuth] = useState(false);
@@ -29,6 +27,9 @@ const App = () => {
   };
 
   const login = async () => {
+    // private info gotten from secrets
+    const { username, email, password } = secrets;
+
     try {
       const { data } = await axios.post(
         'http://127.0.0.1:8000/api/v1/dj-rest-auth/login/',
