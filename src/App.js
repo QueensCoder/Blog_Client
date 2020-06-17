@@ -11,11 +11,7 @@ const App = () => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const { data } = await axios.get('http://127.0.0.1:8000/api/v1/', {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        });
+        const data = blogs;
         setBlogs(data);
         console.log(data);
       } catch (err) {
@@ -31,14 +27,7 @@ const App = () => {
     const { username, email, password } = secrets;
 
     try {
-      const { data } = await axios.post(
-        'http://127.0.0.1:8000/api/v1/dj-rest-auth/login/',
-        {
-          username,
-          email,
-          password,
-        }
-      );
+      const data = {};
       if (data.key) {
         setAuth(true);
         localStorage.setItem('token', data.key);
