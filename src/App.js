@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import secrets from './secrets';
+
+const { username, email, password } = secrets();
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -30,9 +33,9 @@ const App = () => {
       const { data } = await axios.post(
         'http://127.0.0.1:8000/api/v1/dj-rest-auth/login/',
         {
-          username: 'queenscoder',
-          email: 'queens@aol.com',
-          password: 'testingpasswordsaregood',
+          username,
+          email,
+          password,
         }
       );
       if (data.key) {
